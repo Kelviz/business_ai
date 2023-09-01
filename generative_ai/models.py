@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from account.models import UserAccount
 
 
 class BusinessAI(models.Model):
@@ -7,7 +8,7 @@ class BusinessAI(models.Model):
     audience = models.CharField(max_length=500)
     budget = models.CharField(max_length=20)
     idea = models.TextField(blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE, default=1)
     title = models.CharField(max_length=500)
 
     def __str__(self):

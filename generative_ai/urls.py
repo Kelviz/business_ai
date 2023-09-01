@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import GenerateIdeasViewset, AboutViewset, ScrollCardViewset
+from .views import GenerateIdeasViewset, AboutViewset, ScrollCardViewset, IdeaListViewset
 
 
 router = routers.DefaultRouter()
@@ -11,6 +11,8 @@ router.register('generate-ideas', GenerateIdeasViewset,
 router.register('about', AboutViewset, basename='about')
 
 router.register('cards', ScrollCardViewset, basename='cards')
+
+router.register('ideas', IdeaListViewset, basename='ideas')
 
 urlpatterns = [
     path('', include(router.urls))

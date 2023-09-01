@@ -70,3 +70,8 @@ class AboutViewset(viewsets.ModelViewSet):
 class ScrollCardViewset(viewsets.ModelViewSet):
     queryset = ScrollCard.objects.all()
     serializer_class = ScrollCardSerializer
+
+
+class IdeaListViewset(viewsets.ModelViewSet):
+    queryset = BusinessAI.objects.all()
+    serializer_class = BusinessAISerializer
