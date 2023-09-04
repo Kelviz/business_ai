@@ -154,13 +154,13 @@ SIMPLE_JWT = {
 
 SITE_ID = 1
 
-SITE_DOMAIN = 'localhost:3000'
+DOMAIN = 'localhost:3000'
 SITE_NAME = 'BizBurst'
 
 SITE_URL = 'http://' + SITE_DOMAIN 
 
 DJOSER = {
-    'DOMAIN': SITE_DOMAIN,
+    'DOMAIN': DOMAIN,
     'SITE_NAME': SITE_NAME,
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
