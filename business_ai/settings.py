@@ -157,10 +157,10 @@ SITE_ID = 1
 DOMAIN = 'localhost:3000'
 SITE_NAME = 'BizBurst'
 
-SITE_URL = 'http://' + SITE_DOMAIN 
+SITE_URL = 'http://' + DOMAIN 
 
 DJOSER = {
-    'DOMAIN': DOMAIN,
+    'DOMAIN': SITE_URL,
     'SITE_NAME': SITE_NAME,
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
