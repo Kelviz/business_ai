@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from .models import BusinessAI, About, ScrollCard
 from .serializers import BusinessAISerializer, AboutSerializer, ScrollCardSerializer
 from .forms import BusinessForm
+from .permissions import AllowAnyPermission
 import openai
 
 
@@ -70,8 +71,10 @@ class AboutViewset(viewsets.ModelViewSet):
 class ScrollCardViewset(viewsets.ModelViewSet):
     queryset = ScrollCard.objects.all()
     serializer_class = ScrollCardSerializer
+    permission_classes = [AllowAnyPermission]
 
 
 class IdeaListViewset(viewsets.ModelViewSet):
     queryset = BusinessAI.objects.all()
     serializer_class = BusinessAISerializer
+    permission_classes = [AllowAnyPermission]
