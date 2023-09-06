@@ -66,6 +66,7 @@ class GenerateIdeasViewset(viewsets.ViewSet):
 class AboutViewset(viewsets.ModelViewSet):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
+    permission_classes = [AllowAnyPermission]
 
 
 class ScrollCardViewset(viewsets.ModelViewSet):
@@ -77,4 +78,3 @@ class ScrollCardViewset(viewsets.ModelViewSet):
 class IdeaListViewset(viewsets.ModelViewSet):
     queryset = BusinessAI.objects.all()
     serializer_class = BusinessAISerializer
-    permission_classes = [AllowAnyPermission]
