@@ -14,6 +14,7 @@ class GenerateIdeasViewset(viewsets.ViewSet):
 
     def create(self, request):
         form = BusinessForm(request.data)
+        userId = request.data.get("userId")
 
         if form.is_valid():
             industry = form.cleaned_data['industry']
@@ -49,7 +50,8 @@ class GenerateIdeasViewset(viewsets.ViewSet):
                 audience=audience,
                 budget=budget,
                 title=generate_txt,
-                idea=ideas
+                idea=ideas,
+                user_id=userId
 
             )
 
@@ -78,3 +80,15 @@ class ScrollCardViewset(viewsets.ModelViewSet):
 class IdeaListViewset(viewsets.ModelViewSet):
     queryset = BusinessAI.objects.all()
     serializer_class = BusinessAISerializer
+
+    def get_queryset(self, request):
+
+        user_id = request.META.get('HTTP_X_USER_ID')
+        queryset = super().get_queryset().filter(user_id=user_id)
+
+        print(queryset)
+
+        def retrieve(self, request, pk=None):
+            queryset = self.get_queryset()
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
