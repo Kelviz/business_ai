@@ -86,9 +86,9 @@ class IdeaListViewset(viewsets.ModelViewSet):
         user_id = request.META.get('HTTP_X_USER_ID')
         queryset = super().get_queryset().filter(user_id=user_id)
 
-        print(queryset)
+        return queryset
 
-        def retrieve(self, request, pk=None):
-            queryset = self.get_queryset()
-            serializer = self.get_serializer(queryset, many=True)
-            return Response(serializer.data)
+    def retrieve(self, request, pk=None):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
