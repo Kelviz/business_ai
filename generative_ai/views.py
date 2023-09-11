@@ -81,14 +81,28 @@ class IdeaListViewset(viewsets.ModelViewSet):
     queryset = BusinessAI.objects.all()
     serializer_class = BusinessAISerializer
 
-    def get_queryset(self, request):
+    def get_queryset(self):
 
-        user_id = request.META.get('HTTP_X_USER_ID')
+        user_id = self.request.META.get('HTTP_X_USER_ID')
+        print(user_id)
         queryset = super().get_queryset().filter(user_id=user_id)
 
         return queryset
 
     def retrieve(self, request, pk=None):
         queryset = self.get_queryset()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+
+        # Use `pk` parameter to filter by primary key
+        print(f'this pk {pk}')
+        idea = queryset.filter(pk=pk).first()
+        print(idea)
+        if idea is not None:
+            serializer = self.get_serializer(idea)
+            return Response(serializer.data)
+        else:
+            return Response(status=404)
+
+
+class IdeaDetailViewset(viewsets.ModelViewSet):
+    queryset = BusinessAI.objects.all()
+    serializer_class = BusinessAISerializer
