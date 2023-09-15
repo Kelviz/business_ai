@@ -154,7 +154,7 @@ SIMPLE_JWT = {
 
 SITE_ID = 1
 
-DOMAIN = 'https://bizburst-ai.vercel.app/'
+DOMAIN = 'https://bizburst-ai.vercel.app'
 
 SITE_NAME = 'Biz Burst AI'
 
@@ -186,7 +186,7 @@ DJOSER = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://bizburst-ai.vercel.app/"
+    # "https://bizburst-ai.vercel.app/"
 ]
 
 CORS_ALLOW_HEADERS = ["Authorization", "Content-Type", "x-user-id", ]
@@ -244,4 +244,3 @@ CLOUDINARY_STORAGE = {
 }
 
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
