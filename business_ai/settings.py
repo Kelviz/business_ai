@@ -154,7 +154,7 @@ SIMPLE_JWT = {
 
 SITE_ID = 1
 
-DOMAIN = 'https://bizburst-ai.vercel.app'
+DOMAIN = 'bizburst-ai.vercel.app'
 
 SITE_NAME = 'Biz Burst AI'
 
