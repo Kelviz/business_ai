@@ -186,7 +186,7 @@ DJOSER = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://bizburst-ai.vercel.app/",
+    "https://bizburst-ai.vercel.app",
 ]
 
 CORS_ALLOW_HEADERS = ["Authorization", "Content-Type", "x-user-id", ]
