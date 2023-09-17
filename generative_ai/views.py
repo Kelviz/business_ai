@@ -20,7 +20,7 @@ class GenerateIdeasViewset(viewsets.ViewSet):
             industry = form.cleaned_data['industry']
             audience = form.cleaned_data['audience']
             budget = form.cleaned_data['budget']
-            generate_txt = f'Business ideas about {industry} targeting {audience} with the budget of {budget}.'
+            generate_txt = f'Generate business ideas tailored to the {industry} sector, with a strategic focus on the {audience} demographic, while working within a budget of {budget}'
             openai.api_key = settings.OPENAI_DATA['OPENAI_API_KEY']
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
